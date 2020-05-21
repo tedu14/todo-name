@@ -1,0 +1,23 @@
+ul, li {
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.delete {
+    color: #fff;
+    font-weight: bold;
+    background-color: rgb(129, 50, 50);
+    margin: 5px 2px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
