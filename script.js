@@ -1,16 +1,15 @@
-window.addEventListener('load', start);
+window.addEventListener('load', () => {
+    globalInputName = document.querySelector('input');
+    preventFormSubmit();
+    acitvateInput();
+    render();
+});
 
 let globalNames = ['Kaka', 'Tata', 'Dudu'];
 let globalInputName = null;
 let isEditing = false;
 let currentIndex = null;
 
-function start() {
-    globalInputName = document.querySelector('input');
-    preventFormSubmit();
-    acitvateInput();
-    render();
-}
 
 function preventFormSubmit() {
     const form = document.querySelector('form');
@@ -37,7 +36,7 @@ function acitvateInput() {
             if (isEditing) {
                 updateName(content);
             } else {
-                globalNames.push(content);
+                globalNames = [...globalNames, content];
             }
 
             isEditing = false;
@@ -58,7 +57,7 @@ function render() {
         button.addEventListener('click', deleteName);
 
         function deleteName() {
-            globalNames.splice(index, 1);
+            globalNames = globalNames.filter((_, i) => i !== index);
             render();
         }
 
